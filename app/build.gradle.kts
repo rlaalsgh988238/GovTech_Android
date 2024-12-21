@@ -6,6 +6,9 @@ plugins {
 android {
     namespace = "com.braveberry.govtech2024_applepricepredict"
     compileSdk = 34
+    viewBinding {
+        enable = true
+    }
 
     defaultConfig {
         applicationId = "com.braveberry.govtech2024_applepricepredict"
