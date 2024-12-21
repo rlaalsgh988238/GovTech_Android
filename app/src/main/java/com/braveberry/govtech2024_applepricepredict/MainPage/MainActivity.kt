@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity() {
                     viewModel.setNavigationStatus("profileFragment")
                     true
                 }
-
                 else -> false
             }
         }

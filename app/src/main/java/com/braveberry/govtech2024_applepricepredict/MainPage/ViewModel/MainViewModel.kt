@@ -10,7 +10,7 @@ class MainViewModel: ViewModel() {
     val uiState: LiveData<UiStatus> get() = _uiState
 
     init {
-        _uiState.value = UiStatus() // 초기 상태 설정
+        _uiState.value = UiStatus()
     }
 
     fun setNavigationStatus(status: String) {

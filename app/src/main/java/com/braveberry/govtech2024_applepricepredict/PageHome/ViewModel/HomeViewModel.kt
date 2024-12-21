@@ -10,5 +10,5 @@ class HomeViewModel: ViewModel() {
 }
 
 data class HomeFragmentStatus(
-    val status: String
+    val graphStatus: String
 )
