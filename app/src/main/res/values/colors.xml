@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="manlabGreen">#45553D</color>
+    <color name="priceTextColor">#2400FF</color>
 </resources>
