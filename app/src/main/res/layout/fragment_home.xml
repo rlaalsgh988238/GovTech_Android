@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".PageHome.HomeFragment">
+    tools:context=".PageHome.UILayer.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         <TextView
             android:id="@+id/todayText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             app:layout_constraintTop_toBottomOf="@+id/topLayout"
             android:textColor="@color/white"
             android:text="오늘의 발견"
@@ -53,8 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="40dp"
+            app:layout_constraintStart_toStartOf="@id/todayText"
             app:layout_constraintTop_toBottomOf="@+id/todayText"
             android:textColor="@color/white"
             android:text="가치봄에서 분석한 오늘의 농산물 시세"
@@ -66,6 +65,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"/>
