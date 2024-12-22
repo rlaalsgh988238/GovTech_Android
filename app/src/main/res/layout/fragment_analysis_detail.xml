@@ -26,7 +26,7 @@
             android:id="@+id/alarm"
             android:layout_marginRight="9dp"
 
-            android:background="transparent"
+            android:background="@android:color/transparent"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="fitCenter"
@@ -37,7 +37,7 @@
             android:src="@drawable/bell_svg"/>
         <ImageButton
             android:id="@+id/iv_icon"
-            android:background="transparent"
+            android:background="@android:color/transparent"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="fitCenter"

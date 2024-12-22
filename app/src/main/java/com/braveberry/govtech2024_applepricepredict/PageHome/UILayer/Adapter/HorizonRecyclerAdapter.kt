@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.AnalysisPlantDataModel
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantDataModel
 import com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.ViewModel.HomeViewModel
 import com.braveberry.govtech2024_applepricepredict.databinding.CropItemViewBinding
 
@@ -104,7 +105,7 @@ class HorizonRecyclerAdapter(val lifecycleOwner: LifecycleOwner, val homeViewMod
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateItem(newItems: List<AnalysisPlantDataModel>){
+    fun updateItem(newItems: List<PlantDataModel>){
         items = newItems
         notifyDataSetChanged()
     }
