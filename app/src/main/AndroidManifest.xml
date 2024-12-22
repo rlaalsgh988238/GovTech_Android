@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GovTech2024_ApplePricePredict"
         tools:targetApi="31">
         <activity
+            android:name=".PageAnalysisPrice.UILayer.AnalysisPriceActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainPage.MainActivity"
             android:exported="true">
             <intent-filter>

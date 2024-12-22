@@ -79,7 +79,7 @@ class DatePriceData {
         {"date": 920, "prediction": 8800},
         {"date": 923, "prediction": 7700},
         {"date": 924, "prediction": 8200},
-        {"date": 925, "prediction": 7500}
+        {"date": 925, "prediction": 8500}
     ]
 """.trimIndent()
 
