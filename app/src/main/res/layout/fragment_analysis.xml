@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".PageAnalysis.AnalysisFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/rectangle_home"
+            android:scaleType="fitXY"/>
+        <LinearLayout
+            android:id="@+id/topLayout"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:gravity="right|center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageButton
+                android:layout_marginRight="9dp"
+                android:background="@color/manlabGreen"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bell_svg"/>
+            <ImageButton
+                android:background="@color/manlabGreen"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile2"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/todayText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/topLayout"
+            android:textColor="@color/white"
+            android:text="데이터 분석"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            app:layout_constraintStart_toStartOf="@id/todayText"
+            app:layout_constraintTop_toBottomOf="@+id/todayText"
+            android:textColor="@color/white"
+            android:text="작물별 상세분석 정보를 확인해보세요!"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_crop_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textColor="#0D120E"
+            android:text="주요 농산물 목록"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:text="+ 더보기"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tv_crop_list"
+            app:layout_constraintBottom_toBottomOf="@id/tv_crop_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_crop_list"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_crop_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
