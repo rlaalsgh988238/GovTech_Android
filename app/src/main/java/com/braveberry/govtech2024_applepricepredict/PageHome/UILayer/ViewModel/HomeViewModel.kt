@@ -3,9 +3,9 @@ package com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Domain.HomeDomain
-import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.CurrentPriceModel
-import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantDataModel
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Domain.AnalysisDomain
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.AnalysisCurrentPriceModel
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.AnalysisPlantDataModel
 import com.github.mikephil.charting.data.Entry
 
 /**
@@ -17,7 +17,7 @@ class HomeViewModel: ViewModel() {
     // UI 상태 체크
     val uiState: LiveData<HomeFragmentStatus> get() = _uiState
     // 도메인 레이어
-    private val homeDomain = HomeDomain()
+    private val homeDomain = AnalysisDomain()
     /**
      * 뷰모델 초기화
      */
@@ -49,7 +49,7 @@ class HomeViewModel: ViewModel() {
     /**
      * 현재 가격 받아오기
      */
-    private fun setCurrentPrice():List<CurrentPriceModel>{
+    private fun setCurrentPrice():List<AnalysisCurrentPriceModel>{
         return homeDomain.getCurrentPriceList()
     }
 }
@@ -59,7 +59,7 @@ class HomeViewModel: ViewModel() {
  */
 data class HomeFragmentStatus(
     val selectedPlant: String,
-    val recyclerViewItemList: List<PlantDataModel>,
+    val recyclerViewItemList: List<AnalysisPlantDataModel>,
     val plantEntryList: List<Entry>,
-    val currentPriceList: List<CurrentPriceModel>
+    val currentPriceList: List<AnalysisCurrentPriceModel>
 )

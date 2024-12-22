@@ -11,7 +11,7 @@ import com.google.gson.reflect.TypeToken
 /**
  * 작물 데이터 레포
  */
-class PlantDataRepository {
+class AnalysisPlantDataRepository {
     fun getPlantDataList(): List<AnalysisPlantDataModel> {
         return buildPlantDataList()
     }
@@ -52,8 +52,12 @@ class PlantDataRepository {
         // 고추 가격 업데이트
         currentPriceList.add(AnalysisCurrentPriceModel("고추", lastPepperPrediction))
 
-
-
+        val shineMuscatJsonData = AnalysisDatePriceData().shineMuscatData
+        val shineMuscatDatePriceList: List<AnalysisDatePriceModel> = gson.fromJson(shineMuscatJsonData, listType)
+        // 샤머 데이터의 마지막 값 가져오기
+        val lastShineMuscatPrediction = shineMuscatDatePriceList.last().prediction
+        // 샤머 가격 업데이트
+        currentPriceList.add(AnalysisCurrentPriceModel("샤인머스캣", lastShineMuscatPrediction))
 
         return currentPriceList
     }
@@ -68,6 +72,7 @@ class PlantDataRepository {
             "사과" -> datePriceList = gson.fromJson(AnalysisDatePriceData().appleData, listType)
             "감자" -> datePriceList = gson.fromJson(AnalysisDatePriceData().potatoData, listType)
             "고추" -> datePriceList = gson.fromJson(AnalysisDatePriceData().pepperData, listType)
+            "샤인머스캣"->datePriceList = gson.fromJson(AnalysisDatePriceData().shineMuscatData, listType)
             else -> datePriceList = gson.fromJson(AnalysisDatePriceData().appleData, listType)
         }
         val entryList = mutableListOf<Entry>()
@@ -83,6 +88,7 @@ class PlantDataRepository {
         val appleData = AnalysisPlantDataModel("사과", "5000원", R.drawable.apple_image)
         val potatoData = AnalysisPlantDataModel("감자", "4000원", R.drawable.potato_image)
         val pepperData = AnalysisPlantDataModel("고추", "3000원", R.drawable.pepper_image)
-        return listOf(appleData, potatoData, pepperData)
+        val shineMuscatData = AnalysisPlantDataModel("샤인머스캣", "30000원", R.drawable.shine_muscat)
+        return listOf(appleData, potatoData, pepperData,shineMuscatData)
     }
 }

@@ -5,7 +5,7 @@ import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.Ana
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.AnalysisPlantDataModel
 import com.github.mikephil.charting.data.Entry
 
-class HomeDomain {
+class AnalysisDomain {
     private val plantDataRepository = AnalysisPlantDataRepository()
 
     fun getPlantDataList(): List<AnalysisPlantDataModel> {

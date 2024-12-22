@@ -1,15 +1,13 @@
 package com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.Adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantDataModel
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.AnalysisPlantDataModel
 import com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.ViewModel.HomeViewModel
 import com.braveberry.govtech2024_applepricepredict.databinding.CropItemViewBinding
 
@@ -106,7 +104,7 @@ class HorizonRecyclerAdapter(val lifecycleOwner: LifecycleOwner, val homeViewMod
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateItem(newItems: List<PlantDataModel>){
+    fun updateItem(newItems: List<AnalysisPlantDataModel>){
         items = newItems
         notifyDataSetChanged()
     }

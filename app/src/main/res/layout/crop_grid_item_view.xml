@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/itemLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:layout_marginStart="3dp"
+    android:layout_marginEnd="3dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pepper_image"/>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_price"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:cardCornerRadius="0dp">
+            <!-- 텍스트 추가 -->
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전년대비 가격 상승"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF" /> <!-- 텍스트 색상 -->
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/priceText"
+        android:textColor="@color/white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="15dp"
+        android:text="3,000원"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/priceText"
+        app:layout_constraintStart_toStartOf="@id/priceText"
+        android:text="홍로사과"
+        android:textColor="@color/white"
+        android:textSize="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/itemName"
+        app:layout_constraintBottom_toBottomOf="@id/itemName"
+        android:text=" 1kg 당"
+        android:textColor="@color/white"
+        android:textSize="10dp"/>
+
+    <ImageButton
+        android:id="@+id/heartButton"
+        app:layout_constraintTop_toTopOf="@id/itemName"
+        app:layout_constraintBottom_toBottomOf="@id/itemName"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/heart_filled"
+        android:background="@android:color/transparent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
