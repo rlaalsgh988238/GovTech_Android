@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_menu"
         app:labelVisibilityMode="labeled"
-        app:itemTextColor="@color/black"
-        app:itemIconTint="#2196F3"/>
+        app:itemTextColor="@drawable/bottom_navigation_color"
+        app:itemIconTint="@drawable/bottom_navigation_color"/>
 
 </LinearLayout>

@@ -5,6 +5,8 @@
     <color name="manlabGreen">#45553D</color>
     <color name="priceTextColor">#2400FF</color>
     <color name="blue_color">#3A65D4</color>
+    <color name="menu_green">#92A079</color>
+    <color name="menu_gray">#999999</color>
 
     <color name="textGray">#777777</color>
 </resources>
