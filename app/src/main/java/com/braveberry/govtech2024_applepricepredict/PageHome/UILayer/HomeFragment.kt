@@ -54,17 +54,18 @@ class HomeFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, Observer { state ->
             Log.d("test log", "HomeFragment: $state")
             adapter.updateItem(state.recyclerViewItemList)
-            setupChart(viewModel.uiState.value!!.plantEntryList)
-            setPriceGap(viewModel.uiState.value!!.priceGapString)
+            setupChart(state.plantEntryList)
+            setPriceGap(state.priceGapString)
         })
         //차트 초기 세팅
         lineChart = binding.lineChart
         setupChart(viewModel.uiState.value!!.plantEntryList)
-        // 변동 요인 분석
-        val intent = Intent(requireContext(), AnalysisPriceActivity::class.java)
-        // 현재 선택된 작물 이름을 인텐트에 추가
-        intent.putExtra("PlantName", viewModel.uiState.value!!.selectedPlant)
+
         binding.priceAnalysisLayout.setOnClickListener {
+            // 변동 요인 분석
+            val intent = Intent(requireContext(), AnalysisPriceActivity::class.java)
+            // 현재 선택된 작물 이름을 인텐트에 추가
+            intent.putExtra("PlantName", viewModel.uiState.value!!.selectedPlant)
             startActivity(intent)
         }
     }

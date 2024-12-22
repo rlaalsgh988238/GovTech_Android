@@ -22,6 +22,7 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
         <ImageButton
+            android:id="@+id/backButton"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="15dp"
             android:layout_width="30dp"
@@ -99,6 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/currentPrice"
                 android:text="3000원"
                 android:textSize="35dp"
                 android:textStyle="bold"
@@ -106,6 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/priceGapText"
                 android:textSize="12dp"
                 android:textColor="@color/textGray"
                 android:text="어제보다 30원 하락하였습니다."
