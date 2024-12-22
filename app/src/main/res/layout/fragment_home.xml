@@ -71,6 +71,7 @@
         android:layout_weight="7"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/priceAnalysisLayout"
         android:layout_margin="10dp"
         android:background="@drawable/round_manlabgreen_box"
         android:layout_width="match_parent"
@@ -95,14 +96,14 @@
             android:layout_height="wrap_content">
             <TextView
                 android:textStyle="bold"
-                android:text="일주일 전보다 "
+                android:text="하루 전에 비해 "
                 android:id="@+id/timeText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/priceText"
+                android:id="@+id/priceGapText"
                 android:textColor="@color/priceTextColor"
                 android:text="51원 하락 ▼"
                 android:textStyle="bold"

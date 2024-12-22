@@ -3,6 +3,7 @@ package com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Domain
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Data.PlantDataRepository
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.CurrentPriceModel
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantDataModel
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantPriceGapModel
 import com.github.mikephil.charting.data.Entry
 
 class HomeDomain {
@@ -19,5 +20,11 @@ class HomeDomain {
      */
     fun getCurrentPriceList(): List<CurrentPriceModel> {
         return plantDataRepository.getCurrentPriceList()
+    }
+    /**
+     * 작물 가격 차이 리스트
+     */
+    fun getPlantPriceGap(): List<PlantPriceGapModel> {
+        return plantDataRepository.getPlantPriceGap()
     }
 }

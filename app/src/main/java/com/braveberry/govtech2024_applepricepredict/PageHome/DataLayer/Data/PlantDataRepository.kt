@@ -3,6 +3,7 @@ package com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Data
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.CurrentPriceModel
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.DatePriceModel
 import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantDataModel
+import com.braveberry.govtech2024_applepricepredict.PageHome.DataLayer.Model.PlantPriceGapModel
 import com.braveberry.govtech2024_applepricepredict.R
 import com.github.mikephil.charting.data.Entry
 import com.google.gson.Gson
@@ -12,6 +13,32 @@ import com.google.gson.reflect.TypeToken
  * 작물 데이터 레포
  */
 class PlantDataRepository {
+    fun getPlantPriceGap(): List<PlantPriceGapModel> {
+        val appleDatePriceList = parsePlantData(DatePriceData().appleData)
+        val lastApplePrediction = appleDatePriceList.last().prediction
+        val secondLastApplePrediction = appleDatePriceList[appleDatePriceList.size - 2].prediction
+        //사과 가격 차이
+        val applePriceGap = lastApplePrediction - secondLastApplePrediction
+
+        val potatoDatePriceList = parsePlantData(DatePriceData().potatoData)
+        val lastPotatoPrediction = potatoDatePriceList.last().prediction
+        val secondLastPotatoPrediction = potatoDatePriceList[potatoDatePriceList.size - 2].prediction
+        //감자 가격 차이
+        val potatoPriceGap = lastPotatoPrediction - secondLastPotatoPrediction
+
+
+        val pepperDatePriceList = parsePlantData(DatePriceData().pepperData)
+        val lastPepperPrediction = pepperDatePriceList.last().prediction
+        val secondLastPepperPrediction = pepperDatePriceList[pepperDatePriceList.size - 2].prediction
+        //고추 가격 차이
+        val pepperPriceGap = lastPepperPrediction - secondLastPepperPrediction
+
+        return listOf(
+            PlantPriceGapModel("사과", applePriceGap),
+            PlantPriceGapModel("감자", potatoPriceGap),
+            PlantPriceGapModel("고추", pepperPriceGap)
+        )
+    }
     fun getPlantDataList(): List<PlantDataModel> {
         return buildPlantDataList()
     }
@@ -24,29 +51,19 @@ class PlantDataRepository {
     fun getCurrentPriceList(): List<CurrentPriceModel> {
         val currentPriceList = mutableListOf<CurrentPriceModel>()
 
-        // Gson 객체 생성
-        val gson = Gson()
-        val listType = object : TypeToken<List<DatePriceModel>>() {}.type
-
-        // 사과 데이터 파싱
-        val appleJsonData = DatePriceData().appleData
-        val appleDatePriceList: List<DatePriceModel> = gson.fromJson(appleJsonData, listType)
+        val appleDatePriceList = parsePlantData(DatePriceData().appleData)
         // 사과 데이터의 마지막 값 가져오기
         val lastApplePrediction = appleDatePriceList.last().prediction
         // 사과 가격 업데이트
         currentPriceList.add(CurrentPriceModel("사과", lastApplePrediction))
 
-        // 감자 데이터 파싱
-        val potatoJsonData = DatePriceData().potatoData
-        val potatoDatePriceList: List<DatePriceModel> = gson.fromJson(potatoJsonData, listType)
+        val potatoDatePriceList = parsePlantData(DatePriceData().potatoData)
         // 감자 데이터의 마지막 값 가져오기
         val lastPotatoPrediction = potatoDatePriceList.last().prediction
         // 감자 가격 업데이트
         currentPriceList.add(CurrentPriceModel("감자", lastPotatoPrediction))
 
-        // 고추 데이터 파싱
-        val pepperJsonData = DatePriceData().pepperData
-        val pepperDatePriceList: List<DatePriceModel> = gson.fromJson(pepperJsonData, listType)
+        val pepperDatePriceList = parsePlantData(DatePriceData().pepperData)
         // 고추 데이터의 마지막 값 가져오기
         val lastPepperPrediction = pepperDatePriceList.last().prediction
         // 고추 가격 업데이트
@@ -82,5 +99,14 @@ class PlantDataRepository {
         val pepperData = PlantDataModel("고추", "3000원", R.drawable.pepper_image)
 
         return listOf(appleData, potatoData, pepperData)
+    }
+    /**
+     * Json에서 읽고 파싱
+     */
+    private fun parsePlantData(plantData: String): List<DatePriceModel>{
+        val gson = Gson()
+        val listType = object : TypeToken<List<DatePriceModel>>() {}.type
+        val datePriceList: List<DatePriceModel> = gson.fromJson(plantData, listType)
+        return datePriceList
     }
 }
