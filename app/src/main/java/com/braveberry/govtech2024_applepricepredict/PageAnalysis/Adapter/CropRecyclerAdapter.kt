@@ -3,12 +3,15 @@ package com.braveberry.govtech2024_applepricepredict.PageAnalysis.Adapter
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
+import com.braveberry.govtech2024_applepricepredict.PageAnalysis.AnalysisDetailFragment
 import com.braveberry.govtech2024_applepricepredict.PageAnalysis.ViewModel.AnalysisViewModel
 import com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.Adapter.HorizonRecyclerAdapter
 import com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.Adapter.HorizonRecyclerAdapter.ViewHolder
 import com.braveberry.govtech2024_applepricepredict.PageHome.UILayer.ViewModel.HomeViewModel
+import com.braveberry.govtech2024_applepricepredict.R
 import com.braveberry.govtech2024_applepricepredict.databinding.CropItemAnalysisBinding
 import com.braveberry.govtech2024_applepricepredict.databinding.CropItemViewBinding
 
@@ -42,9 +45,30 @@ class CropRecyclerAdapter(val lifecycleOwner: LifecycleOwner, val homeViewModel:
         fun setListener(plant: String){
             // 아이템 선택 시, 뷰모델에 작물 이름 세팅
             binding.itemLayout.setOnClickListener {
-                viewModel.setSelectedPlant(plant)
+
+                val context = binding.root.context
+                if (context is AppCompatActivity) {
+                    val activity = context
+                    val transaction = activity.supportFragmentManager.beginTransaction()
+
+                    // 새로운 Fragment를 add
+                    val fragment = AnalysisDetailFragment()
+
+                    // Fragment가 이미 추가되어 있지 않으면 추가
+                    val existingFragment =
+                        activity.supportFragmentManager.findFragmentByTag(AnalysisDetailFragment::class.java.simpleName)
+
+                    if (existingFragment == null) {
+                        transaction.add(
+                            R.id.fragment_analysis,
+                            fragment,
+                            AnalysisDetailFragment::class.java.simpleName
+                        )
+                        transaction.addToBackStack(null)  // 뒤로 가기 스택에 추가
+                        transaction.commit()
+                    }
+                }
             }
-            //그냥 연동 넘기게만 하면 될 듯 ?
 
 
         }

@@ -30,6 +30,7 @@ class AnalysisViewModel: ViewModel() {
         _uiState.value = analysisFragmentStatus
     }
 
+
     /**
      * 작물 데이터 클래스에 세팅
      */
@@ -39,6 +40,7 @@ class AnalysisViewModel: ViewModel() {
         getPlantEntryList(plant)
     }
 
+
     /**
      * 차트 데이터 데이터 레이어에서 뽑아오기
      */
@@ -46,12 +48,15 @@ class AnalysisViewModel: ViewModel() {
         _uiState.value = _uiState.value?.copy(plantEntryList = analysisDomain.getPlantEntryList(plant))
     }
 
+    ////그냥 양 데이터
+
     /**
      * 현재 가격 받아오기
      */
     private fun setCurrentPrice(): List<AnalysisCurrentPriceModel> {
         return analysisDomain.getCurrentPriceList()
     }
+
 
     /**
      * 가격 하락으로 텍스트와 색상 변경

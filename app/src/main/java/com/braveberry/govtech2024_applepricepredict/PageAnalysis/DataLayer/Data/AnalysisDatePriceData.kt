@@ -164,5 +164,22 @@ class AnalysisDatePriceData {
     ]
 """.trimIndent()
 
+    val appleMount = """
+    [
+        {"date": 1, "prediction": 3310},
+        {"date": 2, "prediction": 1619},
+        {"date": 3, "prediction": 1758},
+        {"date": 4, "prediction": 1340},
+        {"date": 5, "prediction": 1347},
+        {"date": 6, "prediction": 990},
+        {"date": 7, "prediction": 1266},
+        {"date": 8, "prediction": 2541},
+        {"date": 9, "prediction": 4356},
+        {"date": 10, "prediction": 3069},
+        {"date": 11, "prediction": 2461},
+        {"date": 12, "prediction": 1300}
+    ]
+""".trimIndent()
+
 
 }

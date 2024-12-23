@@ -59,6 +59,11 @@ class AnalysisPlantDataRepository {
         // 샤머 가격 업데이트
         currentPriceList.add(AnalysisCurrentPriceModel("샤인머스캣", lastShineMuscatPrediction))
 
+        val amountJsonData= AnalysisDatePriceData().appleMount
+        val appleDateAmountList: List<AnalysisDatePriceModel> = gson.fromJson(amountJsonData, listType)
+        val lastAppleAmount=appleDateAmountList.last().prediction
+        currentPriceList.add(AnalysisCurrentPriceModel("반입량", lastAppleAmount))
+
         return currentPriceList
     }
     /**
@@ -73,6 +78,8 @@ class AnalysisPlantDataRepository {
             "감자" -> datePriceList = gson.fromJson(AnalysisDatePriceData().potatoData, listType)
             "고추" -> datePriceList = gson.fromJson(AnalysisDatePriceData().pepperData, listType)
             "샤인머스캣"->datePriceList = gson.fromJson(AnalysisDatePriceData().shineMuscatData, listType)
+            "반입량"->datePriceList = gson.fromJson(AnalysisDatePriceData().appleMount, listType)
+
             else -> datePriceList = gson.fromJson(AnalysisDatePriceData().appleData, listType)
         }
         val entryList = mutableListOf<Entry>()
