@@ -108,7 +108,7 @@
                 android:id="@+id/priceGapText"
                 android:textSize="12dp"
                 android:textColor="@color/textGray"
-                android:text="어제보다 30원 하락하였습니다."
+                android:text="어제보다 1113원 하락하였습니다."
                 android:gravity="left"
                 android:layout_marginStart="10dp"
                 android:layout_width="match_parent"

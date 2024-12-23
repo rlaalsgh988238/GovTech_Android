@@ -49,7 +49,9 @@ class AnalysisDetailFragment : Fragment() {
 
         lineChart = binding.lineChart
         viewModel.setSelectedPlant("반입량")
-
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
         setupChart(viewModel.uiState.value!!.plantEntryList)
 
     }
